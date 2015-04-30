@@ -92,8 +92,10 @@ public class SSHExec {
 	private SSHExec(ConnBean conn) {
 		try {
 			logger.putMsg(Logger.INFO, "SSHExec initializing ...");
-			this.conn = conn;
-			jsch = new JSch();
+            this.conn = conn;
+            jsch = new JSch();
+            jsch.setKnownHosts(conn.getKnowHosts());
+            jsch.addIdentity(conn.getPrivateKey(), conn.getPassphrase());
 		} catch (Exception e) {
 			logger.putMsg(Logger.ERROR,"Init SSHExec fails with the following exception: " + e);
 		}

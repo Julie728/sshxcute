@@ -9,17 +9,29 @@ package net.neoremind.sshxcute.core;
  *
  */
 public class ConnBean {
-
-	private String host;
-	
-	private String user;
-	
+    private String host;
+    private String user;
 	private String password;
+    private String passphrase;
+    private String knowHosts;
+    private String privateKey;
+    
+    public ConnBean(
+            String host, String user, String password) {
+        this.host = host;
+        this.password = password;
+        this.user = user;
+    }
 
-	public ConnBean(String host, String user, String password){
+    public ConnBean(
+            String host, String user, String password, String passphrase,
+            String knowHosts, String privateKey) {
 		this.host = host;
 		this.password = password;
 		this.user = user;
+        this.passphrase = passphrase;
+        this.knowHosts = knowHosts;
+        this.privateKey = privateKey;
 	}
 	
 	public String getHost() {
@@ -45,6 +57,29 @@ public class ConnBean {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
+
+    public String getPassphrase() {
+        return passphrase;
+    }
+
+    public void setPassphrase(String passphrase) {
+        this.passphrase = passphrase;
+    }
+
+    public String getKnowHosts() {
+        return knowHosts;
+    }
+
+    public void setKnowHosts(String knowHosts) {
+        this.knowHosts = knowHosts;
+    }
+
+    public String getPrivateKey() {
+        return privateKey;
+    }
+
+    public void setPrivateKey(String privateKey) {
+        this.privateKey = privateKey;
+    }
 }
 

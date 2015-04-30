@@ -14,4 +14,9 @@ public class Result {
 		this.isSuccess = isSuccess;
 	}
 
+    public String toString() {
+        return "exitStatus: " + rc + ", output: " + sysout + ", errorMsg: "
+                + error_msg + ", isSuccess: " + isSuccess;
+    }
+
 }
